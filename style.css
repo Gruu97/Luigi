@@ -1,0 +1,217 @@
+/* =========================================== */
+/* 1. PALETA BOJA I GLOBALNI STILOVI */
+/* =========================================== */
+:root {
+    --plava-mediteranska: #1565C0; /* Duboka Plava */
+    --zuta-limun: #FFD600; /* Svetlo Limun Žuta */
+    --krem-pesak: #F5F5DC; /* Peskasto Bela/Krem */
+    --terakota: #E57373; /* Bledo Narandžasta/Terakota za pozadinu */
+    --crvena-akcent: #D32F2F; /* Živahna Crvena (za stolice/akcente) */
+    --font-serif: 'Playfair Display', serif; 
+    --font-sans: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    background-color: var(--krem-pesak); /* Peskasta pozadina zida */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* =========================================== */
+/* 2. TIPOGRAFIJA */
+/* =========================================== */
+
+/* H1 - Najjači vizuelni utisak, Limun Žuta */
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: 3.8em;
+    color: var(--zuta-limun); 
+    text-shadow: 3px 3px 5px var(--plava-mediteranska); /* Duboka Plava Senka */
+    margin-bottom: 0.2em;
+}
+
+/* H2 - Naslovi sekcija, Mediteranska Plava */
+h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5em;
+    color: var(--plava-mediteranska);
+    text-align: center;
+    margin-top: 40px;
+}
+
+p, a, button {
+    font-family: var(--font-sans);
+}
+
+/* =========================================== */
+/* 3. NAVIGACIJA */
+/* =========================================== */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+/* =========================================== */
+/* 4. HERO SEKCIJA I CTA DUGMAD */
+/* =========================================== */
+
+.hero {
+    height: 90vh; /* Više prostora za impresiju */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.cta-button {
+    padding: 14px 35px;
+    margin: 15px 10px;
+    border: none;
+    border-radius: 8px; /* Blago zaobljene ivice */
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.cta-primary {
+    background-color: var(--zuta-limun); 
+    color: #333;
+}
+
+.cta-secondary {
+    background-color: var(--plava-mediteranska);
+    color: white;
+    border: 2px solid var(--zuta-limun); /* Mali limun žuti obrub */
+}
+
+.cta-primary:hover {
+    background-color: #FFC100;
+    transform: translateY(-3px);
+}
+
+/* =========================================== */
+/* 5. VIZUELNI ELEMENTI (VAJB) */
+/* =========================================== */
+
+/* Keramički Separator (Plavo-Bela Pločica) */
+.separator {
+    height: 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--plava-mediteranska) 0,
+        var(--plava-mediteranska) 10px,
+        white 10px,
+        white 20px
+    ); 
+    width: 90%;
+    margin: 50px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Kontejner za sekcije O NAMA i Meni */
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Stil za niše (koristi se zaokruživanje slika ili teksta) */
+.nishe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.nishe-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px; /* Širina za desktop */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--terakota); /* Terakota okvir */
+    /* Kreiranje iluzije luka/niše preko CSS-a - zaobljavanje samo gornjih uglova */
+    border-top-left-radius: 100px; 
+    border-top-right-radius: 100px; 
+}
+
+.nishe-item img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--zuta-limun);
+}
+
+
+/* =========================================== */
+/* 6. RESPONSIVNOST (MOBILE-FIRST) */
+/* =========================================== */
+
+/* Prilagodbe za manje ekrane (telefoni) */
+@media (max-width: 768px) {
+    
+    /* Fontovi */
+    .hero h1 {
+        font-size: 2.5em; 
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    /* Dugmad - stackiranje */
+    .hero-content div {
+        display: flex;
+        flex-direction: column;
+        width: 80%; /* Šire dugmad za lakši klik */
+    }
+
+    .cta-button {
+        width: 100%;
+        margin: 8px 0;
+    }
+    
+    /* Niše - puni ekran */
+    .nishe-item {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Prilagodbe za srednje ekrane (tableti) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nishe-item {
+        width: 45%;
+    }
+}
